@@ -1,10 +1,12 @@
 # Machine Learning
 
-taught by Andrew Ng
+These are the assignments for [Coursera course](https://class.coursera.org/ml) taught by Andrew Ng. 
 
-[Course page](https://class.coursera.org/ml)
+Assignments code is left unmodified in `master` branch - you can just fork the repo and have fun solving them. 
+My solutions are in separate branches. 
 
-#### Install Octave
+#### Install Octave on Ubuntu
+_Consult [Octave Wiki](https://wiki.octave.org/Octave_for_Debian_systems) for more details_ 
 
 ```bash
 sudo apt-add-repository ppa:octave/stable
