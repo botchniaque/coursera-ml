@@ -19,18 +19,26 @@ for iter = 1:num_iters
 
 
 
+    A = [0 0; alpha 0; 0 alpha; alpha alpha; -alpha 0; 0 -alpha; -alpha -alpha ]'
+
+    T = theta + A
 
 
+    c1 = computeCost(X, y, T(:,1))
+    c2 = computeCost(X, y, T(:,2))
+    c3 = computeCost(X, y, T(:,3))
+    c4 = computeCost(X, y, T(:,4))
+    c5 = computeCost(X, y, T(:,5))
+    c6 = computeCost(X, y, T(:,6))
+    c7 = computeCost(X, y, T(:,7))
 
-
-
-
-
+    [x, ix] = min([c1, c2, c3, c4, c5, c6, c7])
+    theta = T(:, ix)
 
     % ============================================================
 
-    % Save the cost J in every iteration    
-    J_history(iter) = computeCostMulti(X, y, theta);
+    % Save the cost J in every iteration
+    J_history(iter) = x;
 
 end
 
