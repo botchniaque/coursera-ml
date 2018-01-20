@@ -105,11 +105,10 @@ fprintf('\n');
 % Recall that the first column of X is all-ones. Thus, it does
 % not need to be normalized.
 
-in = [1650, 3]
-in_norm = (in - mu) ./ sigma
+in = [1650, 3];
+in_norm = (in - mu) ./ sigma;
 
-price = sum(theta' .* [1 in_norm], 2) 
-
+price = sum(theta' .* [1 in_norm], 2);
 
 % ============================================================
 
@@ -153,7 +152,10 @@ fprintf('\n');
 
 % Estimate the price of a 1650 sq-ft, 3 br house
 % ====================== YOUR CODE HERE ======================
-price = 0; % You should change this
+
+in = [1650 3 ]
+
+price = sum(theta' .* [1 in], 2) 
 
 
 % ============================================================
