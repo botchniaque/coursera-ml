@@ -12,12 +12,14 @@ figure; hold on;
 %               examples and 'ko' for the negative examples.
 %
 
+a = [X, y];
+zeros = a(a(:, 3)==0, :);
+ones = a(a(:, 3)==1, :);
 
-
-
-
-
-
+plot(ones(:, 1), ones(:, 2), 'k+')
+hold on;
+plot(zeros(:, 1), zeros(:, 2), 'yo', 'MarkerEdgeColor', 'black', 'MarkerFaceColor', 'yellow')
+hold on;
 
 
 % =========================================================================
