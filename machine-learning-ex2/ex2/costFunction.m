@@ -11,7 +11,7 @@ m = length(y); % number of training examples
 J = 0;
 grad = zeros(size(theta));
 
-% ====================== YOUR CODE HERE ======================
+% ====================== YOUR CODE HEgrad = 1/m .* sum((sigmoid(theta' .* X) - y).*X);RE ======================
 % Instructions: Compute the cost of a particular choice of theta.
 %               You should set J to the cost.
 %               Compute the partial derivatives and set grad to the partial
@@ -21,10 +21,11 @@ grad = zeros(size(theta));
 %
 
 
-J = 1/m * sum(-y .* log(sigmoid(sum(theta' .* X, 2))) - (1 - y) .* log(1 - sigmoid(sum(theta' .* X, 2))));
+hypo = sigmoid(X * theta)
 
+J = 1/m * sum(-y .* log(hypo) - (1 - y) .* log(1 - hypo));
 
-grad = 1/m .* sum((sigmoid(theta' .* X) - y).*X);
+grad = 1/m .* sum((hypo - y).*X)';
 
 % =============================================================
 
