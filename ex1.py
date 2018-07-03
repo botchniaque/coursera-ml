@@ -72,6 +72,8 @@ J = computeCost(X, y, theta)
 
 theta, history = gradientDescent(X, y, theta, alpha, iterations)
 
+print('Theta after fit: %s' % theta)
+
 plot2(X, y, theta)
 
 theta0_vals = linspace(-10, 10, 100)
