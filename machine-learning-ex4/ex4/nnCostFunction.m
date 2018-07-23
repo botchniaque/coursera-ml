@@ -73,12 +73,27 @@ for i=1:num_labels
 end
 
 
-J =  1/m * sum(sum(-yy .* log(h) - (1 - yy).*log(1 - h)))
+J_noreg =  1/m * sum(sum(-yy .* log(h) - (1 - yy).*log(1 - h)));
+
+J = J_noreg +  lambda/(2 * m) .* (sum(Theta1(:, 2:end)(:) .^ 2) + sum(Theta2(:, 2:end)(:) .^ 2));
 
 
 
 
+for t=1:m
+  a_1 = X(t, :);
+  z_2 = [1, a_1] * Theta1';
+  a_2 = sigmoid(z_2);
+  z_3 = [1, a_2] * Theta2';
+  a_3 = sigmoid(z_3);
+  
+  d_3 = (a_3 - yy(t));
+  d_2 = (d_3 * Theta2)(2:end) .* sigmoidGradient(z_2);
+    
+  Theta1_grad = Theta1_grad + [zeros(hidden_layer_size, 1) d_2' * a_1];
+  Theta2_grad = Theta2_grad + [zeros(num_labels, 1) d_3' * a_2];
 
+end
 
 
 
@@ -88,7 +103,7 @@ J =  1/m * sum(sum(-yy .* log(h) - (1 - yy).*log(1 - h)))
 % =========================================================================
 
 % Unroll gradients
-grad = [Theta1_grad(:) ; Theta2_grad(:)];
+grad = [Theta1_grad(:) ; Theta2_grad(:)] ./ m;
 
 
 end
