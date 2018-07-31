@@ -95,7 +95,8 @@ for t=1:m
 
 end
 
-
+Theta1_grad = Theta1_grad + lambda * [zeros(size(Theta1, 1), 1) Theta1(:,2:end)];
+Theta2_grad = Theta2_grad + lambda * [zeros(size(Theta2, 1), 1) Theta2(:,2:end)];
 
 
 % -------------------------------------------------------------
