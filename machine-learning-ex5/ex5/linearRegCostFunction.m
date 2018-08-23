@@ -19,15 +19,14 @@ grad = zeros(size(theta));
 %               You should set J to the cost and grad to the gradient.
 %
 
+no_zero = eye(size(theta, 1));
+no_zero(1, 1) = 0;
 
+hypothesis = sum(theta' .* X, 2);
 
+J = sum( (hypothesis - y).^2)/(2*m) + lambda/(2*m) .* sum((no_zero * theta).^2);
 
-
-
-
-
-
-
+grad = (1/m .* sum((hypothesis - y).*X)) + lambda/m .* (no_zero * theta)';
 
 
 % =========================================================================
