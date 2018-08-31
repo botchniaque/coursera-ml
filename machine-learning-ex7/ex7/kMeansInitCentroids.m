@@ -15,8 +15,7 @@ centroids = zeros(K, size(X, 2));
 
 
 
-
-
+centroids = X(ceil(rand(K, 1)*size(X, 1)), :);
 
 
 

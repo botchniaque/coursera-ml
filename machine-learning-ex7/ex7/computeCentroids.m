@@ -28,7 +28,9 @@ centroids = zeros(K, n);
 
 for k = 1:K
     Xk = X((idx == k), :);
-    centroids(k, :) = sum(Xk, 1)/size(Xk, 1);
+    if (size(Xk, 1) != 0)
+        centroids(k, :) = sum(Xk, 1)/size(Xk, 1);
+    end
 end
 
 
